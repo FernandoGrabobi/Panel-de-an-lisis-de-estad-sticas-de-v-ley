@@ -1,0 +1,4 @@
+mudule.exports = {
+ content:["./*.html"],
+
+}
