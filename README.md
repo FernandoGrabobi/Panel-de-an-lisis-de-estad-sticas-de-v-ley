@@ -41,4 +41,5 @@ Visualizaciones con gráficos circulares, de barras
 
 7. Análisis de combinaciones
 Qué combinaciones de jugadores/jugadas fueron más efectivas
-Podés mostrarlo con etiquetas o gráficos
+Podés mostrarlo con etiquetas o gráficos![ChatGPT Image 18 abr 2025, 05_21_53 a m](https://github.com/user-attachments/assets/e4989d50-550e-4f89-8277-5840b65b5867)
+
