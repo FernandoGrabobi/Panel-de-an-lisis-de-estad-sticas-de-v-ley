@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Estadísticas de Equipo</title>
+  <script defer src="../scripts/team-stats.js"></script>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+
+  <!-- 1) match data -->
+  <form id="match-info" class="grid grid-cols-3 gap-4 mb-6 bg-gray-900 p-4 rounded shadow text-gray-100">
+    <div>
+      <label class="block text-sm font-medium">Home Team</label>
+      <input name="home" type="text" class="mt-1 block w-full border rounded px-2 py-1"/>
+    </div>
+    <div>
+      <label class="block text-sm font-medium">Visiting Team</label>
+      <input name="away" type="text" class="mt-1 block w-full border rounded px-2 py-1"/>
+    </div>
+    <div>
+      <label class="block text-sm font-medium">Date</label>
+      <input name="date" type="date" class="mt-1 block w-full border rounded px-2 py-1"/>
+    </div>
+  </form>
+
+  <!-- 2) editable table -->
+  <div class="overflow-x-auto bg-white rounded shadow">
+    <table id="team-table" class="min-w-full divide-y divide-gray-200 text-sm">
+      <thead class=" bg-gray-900 text-white">
+        <tr>
+          <th rowspan="2" class="px-2 py-1"># Player</th>
+          <th colspan="3" class="px-2 py-1">Serves</th>
+          <th colspan="4" class="px-2 py-1">Reception</th>
+          <th rowspan="2" class="px-2 py-1">Successful Blocking</th>
+          <th rowspan="2" class="px-2 py-1">Rotation Attack</th>
+        </tr>
+        <tr>
+          <th class="px-2 py-1">Positive</th>
+          <th class="px-2 py-1">Ace</th>
+          <th class="px-2 py-1">Error</th>
+          <th class="px-2 py-1">Doble Pos</th>
+          <th class="px-2 py-1">Positive</th>
+          <th class="px-2 py-1">Negative</th>
+          <th class="px-2 py-1">Exclamatory</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-100">
+        <!-- Here the lines will go-->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 3) button to add rows -->
+  <div class="mt-4">
+    <button id="add-row"
+      class="px-4 py-2 bg-purple-900 text-white rounded hover:bg-purple-950">
+      Agregar jugador
+    </button>
+  </div>
+</body>
+</html>
