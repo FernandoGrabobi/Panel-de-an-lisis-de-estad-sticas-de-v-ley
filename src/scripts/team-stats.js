@@ -70,3 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
     newRow.scrollIntoView({ behavior: 'smooth' });
   });
 });
+
+ // sidebar
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('../partials/sidebar.html') // cambia la ruta si es necesario
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('sidebar-container').innerHTML = html;
+    })
+    .catch(err => console.error('Error loading sidebar:', err));
+});
