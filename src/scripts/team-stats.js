@@ -29,24 +29,36 @@ document.addEventListener('DOMContentLoaded', () => {
     teamTotalAtq.textContent = sumAtq;
   }
 
+  // Función para obtener el siguiente número de jugador
+  function getNextPlayerNumber() {
+    const existingNumbers = Array.from(tbody.querySelectorAll('input[name="num"]'))
+      .map(input => Number(input.value))
+      .filter(num => num > 0);
+    
+    if (existingNumbers.length === 0) return 1;
+    return Math.max(...existingNumbers) + 1;
+  }
+
   // Crea una fila con inputs y bindings
-  function addRow() {
+  function addRow(playerNumber = null) {
+    const playerNum = playerNumber || getNextPlayerNumber();
+    
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td class="px-1 py-1">
-        <input type="number" name="num" min="1" class="w-12 border rounded px-1 py-0.5"/>
+        <input type="number" name="num" min="1" value="${playerNum}" class="w-12 border rounded px-1 py-0.5 text-center"/>
       </td>
-      <td class="px-1 py-1"><input type="number" name="saquePos" class="w-12 border rounded px-1 py-0.5"/></td>
-      <td class="px-1 py-1"><input type="number" name="ace" class="w-12 border rounded px-1 py-0.5"/></td>
-      <td class="px-1 py-1"><input type="number" name="saqueErr" class="w-12 border rounded px-1 py-0.5"/></td>
-      <td class="px-1 py-1"><input type="number" name="recDoblePos" class="w-12 border rounded px-1 py-0.5"/></td>
-      <td class="px-1 py-1"><input type="number" name="recPos" class="w-12 border rounded px-1 py-0.5"/></td>
-      <td class="px-1 py-1"><input type="number" name="recNeg" class="w-12 border rounded px-1 py-0.5"/></td>
-      <td class="px-1 py-1"><input type="number" name="recExcl" class="w-12 border rounded px-1 py-0.5"/></td>
-      <td class="px-1 py-1"><input type="number" name="bloqEx" class="w-12 border rounded px-1 py-0.5"/></td>
-      <td class="px-1 py-1"><input type="number" name="ataqRot" class="w-12 border rounded px-1 py-0.5"/></td>
-      <td class="px-1 py-1"><input type="number" name="totalSaques" class="w-12 border rounded px-1 py-0.5" readonly/></td>
-      <td class="px-1 py-1"><input type="number" name="totalAtq" class="w-12 border rounded px-1 py-0.5" readonly/></td>
+      <td class="px-1 py-1"><input type="number" name="saquePos" class="w-12 border rounded px-1 py-0.5 text-center"/></td>
+      <td class="px-1 py-1"><input type="number" name="ace" class="w-12 border rounded px-1 py-0.5 text-center"/></td>
+      <td class="px-1 py-1"><input type="number" name="saqueErr" class="w-12 border rounded px-1 py-0.5 text-center"/></td>
+      <td class="px-1 py-1"><input type="number" name="recDoblePos" class="w-12 border rounded px-1 py-0.5 text-center"/></td>
+      <td class="px-1 py-1"><input type="number" name="recPos" class="w-12 border rounded px-1 py-0.5 text-center"/></td>
+      <td class="px-1 py-1"><input type="number" name="recNeg" class="w-12 border rounded px-1 py-0.5 text-center"/></td>
+      <td class="px-1 py-1"><input type="number" name="recExcl" class="w-12 border rounded px-1 py-0.5 text-center"/></td>
+      <td class="px-1 py-1"><input type="number" name="bloqEx" class="w-12 border rounded px-1 py-0.5 text-center"/></td>
+      <td class="px-1 py-1"><input type="number" name="ataqRot" class="w-12 border rounded px-1 py-0.5 text-center"/></td>
+      <td class="px-1 py-1"><input type="number" name="totalSaques" class="w-12 border rounded px-1 py-0.5 text-center" readonly/></td>
+      <td class="px-1 py-1"><input type="number" name="totalAtq" class="w-12 border rounded px-1 py-0.5 text-center" readonly/></td>
     `;
 
     // Binding inputs excepto totales
@@ -60,10 +72,17 @@ document.addEventListener('DOMContentLoaded', () => {
     return tr;
   }
 
-  // Añade fila inicial
-  addRow();
+  // Inicializar tabla con 6 filas
+  function initializeTable() {
+    for (let i = 1; i <= 6; i++) {
+      addRow(i);
+    }
+  }
 
-  // Botón para agregar más
+  // Inicializa la tabla con 6 filas
+  initializeTable();
+
+  // Botón para agregar más filas
   btnAdd.addEventListener('click', e => {
     e.preventDefault();
     const newRow = addRow();
@@ -71,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
- // sidebar
+// sidebar
 document.addEventListener('DOMContentLoaded', () => {
   fetch('../partials/sidebar.html') // cambia la ruta si es necesario
     .then(res => res.text())
