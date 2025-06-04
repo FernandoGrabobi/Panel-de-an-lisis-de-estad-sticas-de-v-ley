@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Match statistics</title>
+  <link rel="icon" href="../assets/Icons/volleyball_11079514.png" type="image/png">
+  <script defer src="../scripts/team-stats.js"></script>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 h-screen">
+  <div class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <div id="sidebar-container" class="fixed w-64 bg-gray-900 text-white h-full">
+      <!-- Tu contenido de sidebar -->
+    </div>
+
+    <!-- Contenido principal -->
+        <div class="flex-1 ml-64 p-6 relative">
+
+        <!-- Cancha con fondo personalizado -->
+        <div class="relative w-full max-w-5xl mx-auto aspect-[2/1] bg-center bg-cover rounded-xl shadow-lg"
+            style="background-image: url('../assets/Image/Quadra\ vôlei\ VNL\ 2023.jfif');">
+            
+            <!-- Jugadores equipo 1 -->
+            <div class="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 space-y-2">
+            <div class="flex space-x-2 justify-center">
+                <div class="w-10 h-10 bg-green-700 rounded-full text-white flex items-center justify-center">IV</div>
+                <div class="w-10 h-10 bg-green-700 rounded-full text-white flex items-center justify-center">III</div>
+                <div class="w-10 h-10 bg-green-700 rounded-full text-white flex items-center justify-center">II</div>
+            </div>
+            <div class="flex space-x-2 justify-center">
+                <div class="w-10 h-10 bg-green-700 rounded-full text-white flex items-center justify-center">V</div>
+                <div class="w-10 h-10 bg-green-700 rounded-full text-white flex items-center justify-center">VI</div>
+                <div class="w-10 h-10 bg-green-700 rounded-full text-white flex items-center justify-center">I</div>
+            </div>
+            </div>
+
+            <!-- Jugadores equipo 2 -->
+            <div class="absolute top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2 space-y-2">
+            <div class="flex space-x-2 justify-center">
+                <div class="w-10 h-10 bg-pink-700 rounded-full text-white flex items-center justify-center">II</div>
+                <div class="w-10 h-10 bg-pink-700 rounded-full text-white flex items-center justify-center">III</div>
+                <div class="w-10 h-10 bg-pink-700 rounded-full text-white flex items-center justify-center">IV</div>
+            </div>
+            <div class="flex space-x-2 justify-center">
+                <div class="w-10 h-10 bg-pink-700 rounded-full text-white flex items-center justify-center">VI</div>
+                <div class="w-10 h-10 bg-pink-700 rounded-full text-white flex items-center justify-center">V</div>
+                <div class="w-10 h-10 bg-pink-700 rounded-full text-white flex items-center justify-center">I</div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Marcadores -->
+        <div class="absolute left-1/4 top-2 flex flex-col items-center">
+            <p class="font-bold">Comercio</p>
+            <div class="w-12 h-12 bg-green-600 text-white text-center rounded-full flex items-center justify-center text-lg font-bold">0</div>
+        </div>
+        <div class="absolute right-1/4 top-2 flex flex-col items-center">
+            <p class="font-bold">Añanga VC</p>
+            <div class="w-12 h-12 bg-pink-700 text-white text-center rounded-full flex items-center justify-center text-lg font-bold">0</div>
+        </div>
+
+        <!-- Icono balón en el centro -->
+        <div class="absolute top-2 left-1/2 -translate-x-1/2">
+            <img src="../assets/Icons/volleyball_11079514.png" alt="ball" class="w-8 h-8">
+        </div>
+
+        </div> <!-- Fin contenido principal -->
+
+  </div> <!-- Fin contenedor flex -->
+
+  <script src="../scripts/script.js" defer></script>
+</body>
+
+</html>
